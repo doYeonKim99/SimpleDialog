@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 {
     String[] items=new String[]{"젤리빈","킷켓","롤리팝"};
-    boolean[] checkArr={};
+    boolean[] checkArr={false, false,true};
     Button buy;
 
     @Override
@@ -34,12 +34,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     )};*/
 
-        dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+      /* dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 buy.setText(items[which]);
             }
         });
+        */
+        dialog.setMultiChoiceItems(items, checkArr, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                buy.setText(items[which]);
+            }
+        });
+
         dialog.setIcon(R.drawable.firsticon);
         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
