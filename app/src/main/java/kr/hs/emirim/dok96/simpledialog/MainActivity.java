@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 {
     String[] items=new String[]{"젤리빈","킷켓","롤리팝"};
+    boolean[] checkArr={};
     Button buy;
 
     @Override
@@ -27,7 +28,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setTitle("첫 대화 상자");
-        dialog.setItems(items, new DialogInterface.OnClickListener() {
+        /*dialog.setItems(items,new DialogInterface.OnClickListener){
+          public void onClick(DialogInterface dialog, int which) {
+        buy.setText(items[which]);
+    }
+    )};*/
+
+        dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 buy.setText(items[which]);
